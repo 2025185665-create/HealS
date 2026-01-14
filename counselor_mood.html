@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>📘 Students Mood Records</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .container { max-width: 900px; margin: auto; padding: 20px; text-align: center; }
+    table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+    th, td { padding: 10px; border: 1px solid #ddd; text-align: center; }
+    th { background-color: #4CAF50; color: white; }
+    button { padding: 6px 10px; border-radius: 6px; background-color: #4CAF50; color: white; border: none; cursor: pointer; }
+    button:hover { background-color: #45a049; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>👩‍⚕️ Students Mood Records</h2>
+
+    <table border="1" id="studentsTable">
+      <tr>
+        <th>Student ID</th>
+        <th>Student Name</th>
+        <th>Action</th>
+      </tr>
+    </table>
+
+    <br>
+    <a href="counselor.html">⬅ Back to Dashboard</a>
+  </div>
+  
+  <script src="script.js"></script>
+  <script>
+     loadCounselorMood();
+  </script>
+</body>
+</html>

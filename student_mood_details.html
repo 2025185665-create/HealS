@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>📘 Student Mood Details</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .container { max-width: 800px; margin: auto; padding: 20px; text-align: center; }
+    table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+    th, td { padding: 10px; border: 1px solid #ddd; text-align: center; }
+    th { background-color: #4CAF50; color: white; }
+    textarea { width: 90%; padding: 8px; border-radius: 6px; border: 1px solid #ccc; margin-top: 10px; }
+    button { padding: 8px 12px; margin-top: 10px; border-radius: 6px; background-color: #4CAF50; color: white; border: none; cursor: pointer; }
+    button:hover { background-color: #45a049; }
+    #feedbackMsg { color: green; margin-top: 10px; font-weight: bold; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>📘 Student Mood Details</h2>
+    <p id="studentName"></p>
+
+    <table border="1" id="moodDetailsTable">
+      <tr>
+        <th>Date</th>
+        <th>Mood</th>
+        <th>Notes</th>
+      </tr>
+    </table>
+
+    <h3>💬 Send Feedback to Student</h3>
+    <textarea id="feedbackText" rows="4" placeholder="Write your feedback..."></textarea><br>
+    <button onclick="sendFeedback()">Send Feedback</button>
+    <p id="feedbackMsg"></p>
+
+    <br>
+	<a class="back" href="counselor_mood.html">⬅ Back to Students List</a>
+  </div>
+  <script src="script.js"></script>
+  <script>
+    loadStudentMoodDetails();
+  </script>
+</body>
+</html>

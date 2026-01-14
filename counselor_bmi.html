@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>📊 Students BMI Records</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .container { max-width: 800px; margin: auto; padding: 20px; text-align: center; }
+    table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+    th, td { padding: 10px; border: 1px solid #ddd; text-align: center; }
+    th { background-color: #4CAF50; color: white; }
+    a.view-btn { background-color: #4CAF50; color: white; padding: 8px 12px; border-radius: 6px; text-decoration: none; }
+    a.view-btn:hover { background-color: #45a049; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>📊 Students BMI Records</h2>
+
+    <table id="bmiTable">
+      <tr>
+        <th>Student ID</th>
+        <th>Student Name</th>
+        <th>Latest BMI (Value / Status)</th>
+        <th>Action</th>
+      </tr>
+    </table>
+
+    <br>
+    <a href="counselor.html">⬅ Back to Dashboard</a>
+  </div>
+  
+  <script src="script.js"></script>
+  <script>
+    loadCounselorBMI();
+  </script>
+</body>
+</html>

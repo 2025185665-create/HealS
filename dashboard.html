@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🧑‍🎓 Student Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    .btn-dashboard {
+      display: block;
+      width: 250px;
+      margin: 20px auto;
+      padding: 15px;
+      font-size: 18px;
+      text-align: center;
+      border-radius: 10px;
+      background-color: #4CAF50;
+      color: white;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    #wellnessTip, #feedbackList {
+      font-size: 16px;
+      text-align: center;
+      max-width: 500px;
+      margin: 10px auto;
+    }
+
+    .feedback-item {
+      border: 1px solid #ccc;
+      margin: 5px auto;
+      padding: 10px;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h2>👋 Welcome, <span id="studentName"></span>!</h2>
+    <p>Choose what you want to do:</p>
+
+    <a class="btn-dashboard" href="mood.html">💭 Record / View Mood</a>
+    <a class="btn-dashboard" href="bmi.html">📊 Track BMI</a>
+    <a class="btn-dashboard" href="timetable.html">📅 Manage Timetable</a>
+
+    <!-- Wellness Tip Button -->
+    <a class="btn-dashboard" href="#" onclick="getWellnessTipButton(); return false;">
+      💡 Wellness Tip
+    </a>
+
+    <!-- Wellness Tip Output -->
+    <div id="wellnessTip" style="margin-top:20px; font-style: italic;"></div>
+
+    <!-- Feedback Button -->
+    <a class="btn-dashboard" href="#" onclick="loadFeedback(); return false;">
+      💬 View Feedback
+    </a>
+
+    <!-- Feedback Section -->
+    <div id="feedbackSection" style="margin-top:30px;">
+      <h3>💬 Your Feedback</h3>
+      <div id="feedbackList">No feedback yet.</div>
+      <a class="btn-dashboard" href="#" onclick="loadFeedback(); return false;">
+        🔄 Refresh Feedback
+      </a>
+    </div>
+
+    <a href="index.html">⬅ Logout</a>
+  </div>
+
+  <!-- MAIN JS FILE -->
+  <script src="script.js"></script>
+
+  <!-- USER LOAD CHECK -->
+  <script>
+    const currentUser = JSON.parse(localStorage.getItem("loggedUser"));
+
+    if (!currentUser) {
+      alert("⚠️ Session expired. Please login again.");
+      window.location.href = "index.html";
+    } else {
+      document.getElementById("studentName").innerText = currentUser.fullName;
+    }
+  </script>
+</body>
+</html>

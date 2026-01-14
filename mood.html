@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>💭 Mood Tracker</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h2>💭 Record Your Mood</h2>
+    
+    <form id="moodForm" onsubmit="event.preventDefault(); recordMood();">
+      <label for="mood">Select Mood:</label>
+      <select id="mood" required>
+        <option value="">--Choose--</option>
+        <option value="Happy 😊">Happy 😊</option>
+        <option value="Sad 😔">Sad 😔</option>
+        <option value="Stressed 😣">Stressed 😣</option>
+        <option value="Relaxed 😌">Relaxed 😌</option>
+        <option value="Angry 😡">Angry 😡</option>
+      </select>
+
+      <label for="notes">Notes:</label>
+      <textarea id="notes" rows="4" placeholder="Add your notes..."></textarea>
+
+      <button type="submit">💾 Save Mood</button>
+    </form>
+
+    <h3>📖 Mood History</h3>
+    <table border="1" id="moodHistory" style="width:100%; text-align:center;">
+      <tr>
+        <th>Date</th>
+        <th>Mood</th>
+        <th>Notes</th>
+      </tr>
+    </table>
+	<ul id="moodHistory"></ul>
+
+    <a href="dashboard.html">⬅ Back to Dashboard</a>
+  </div>
+
+  <script src="script.js"></script>
+  <script>
+    loadMoodHistory();
+  </script>
+</body>
+</html>

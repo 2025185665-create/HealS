@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HealS Login 🔑</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h2>🌿 HealS Login</h2>
+
+    <form id="loginForm" onsubmit="event.preventDefault(); loginUser();">
+      <input type="text" id="userID" placeholder="Student/Staff ID" required>
+      <input type="password" id="password" placeholder="Password" required>
+      <select id="role" required>
+        <option value="">Select Role</option>
+        <option value="student">👩‍🎓 Student</option>
+        <option value="counselor">👨‍⚕️ Counselor</option>
+        <option value="admin">🛠️ Admin</option>
+      </select>
+      <button type="submit">Login ✅</button>
+    </form>
+
+    <p id="msg"></p>
+    <p>Don't have an account? <a href="register.html">Register here</a></p>
+  </div>
+
+<script src="script.js"></script>
+</body>
+</html>

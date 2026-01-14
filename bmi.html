@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>📊 BMI Tracker</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h2>📊 BMI Tracker</h2>
+
+    <form id="bmiForm" onsubmit="event.preventDefault(); recordBMI();">
+      <label for="weight">Weight (kg):</label>
+      <input type="number" id="weight" required>
+      <label for="height">Height (cm):</label>
+      <input type="number" id="height" required>
+
+      <button type="submit">💾 Calculate & Save BMI</button>
+    </form>
+
+    <h3>📖 BMI History</h3>
+    <table border="1" id="bmiHistory" style="width:100%; text-align:center;">
+      <tr>
+        <th>Date</th>
+        <th>Weight (kg)</th>
+        <th>Height (cm)</th>
+        <th>BMI</th>
+        <th>Status</th>
+      </tr>
+    </table>
+
+    <a href="dashboard.html">⬅ Back to Dashboard</a>
+  </div>
+
+  <script src="script.js"></script>
+  <script>
+    loadBMIHistory();
+  </script>
+</body>
+</html>

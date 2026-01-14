@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🕒 Manage Timetable</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    table { width: 100%; text-align: center; border-collapse: collapse; margin-bottom: 20px; }
+    table th, table td { padding: 10px; border: 1px solid #ccc; }
+    button { padding: 5px 10px; margin: 2px; cursor: pointer; border-radius: 5px; }
+    .btn-add { background-color: #4CAF50; color: white; }
+    .btn-edit { background-color: #FFC107; color: white; }
+    .btn-delete { background-color: #F44336; color: white; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>📅 Manage Your Timetable</h2>
+
+    <form id="timetableForm" onsubmit="event.preventDefault(); addTimetable();">
+      <label for="day">Day:</label>
+      <input type="text" id="day" placeholder="Monday" required>
+      
+      <label for="subject">Subject:</label>
+      <input type="text" id="subject" placeholder="Math" required>
+      
+      <label for="time">Time:</label>
+      <input type="text" id="time" placeholder="10:00 AM - 11:00 AM" required>
+      
+      <button type="submit" class="btn-add">➕ Add</button>
+      <button type="button" class="btn-delete" onclick="resetTimetable()">♻️ Reset Timetable</button>
+    </form>
+
+    <h3>🕒 Your Timetable</h3>
+    <table id="timetableTable">
+      <tr>
+        <th>Day</th>
+        <th>Subject</th>
+        <th>Time</th>
+        <th>Actions</th>
+      </tr>
+    </table>
+
+    <a href="dashboard.html">⬅ Back to Dashboard</a>
+  </div>
+
+  <script src="script.js"></script>
+  <script>
+    loadTimetable();
+  </script>
+</body>
+</html>

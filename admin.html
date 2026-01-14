@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🛠️ Admin Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body { font-family: Arial, sans-serif; }
+    .container { max-width: 900px; margin: auto; padding: 20px; }
+    h2, h3 { text-align: center; }
+    table { width: 100%; border-collapse: collapse; margin-top: 20px; text-align: center; }
+    th, td { padding: 10px; border: 1px solid #ddd; }
+    th { background-color: #4CAF50; color: white; }
+    input, button { padding: 8px 12px; margin: 5px; border-radius: 6px; }
+    button { background-color: #4CAF50; color: white; border: none; cursor: pointer; }
+    button:hover { background-color: #45a049; }
+    .add-form { text-align: center; margin-bottom: 20px; }
+    .delete-btn { background-color: red; color: white; }
+    .delete-btn:hover { background-color: darkred; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>🛠️ Admin Dashboard</h2>
+
+    <div class="add-form">
+      <h3>➕ Add New Student</h3>
+      <input type="text" id="fullName" placeholder="Full Name" required>
+      <input type="text" id="userID" placeholder="Student ID" required>
+      <input type="email" id="email" placeholder="Email" required>
+      <input type="password" id="password" placeholder="Password" required>
+      <button onclick="addStudent()">Add Student</button>
+    </div>
+
+    <h3>📋 Registered Students</h3>
+    <table id="studentTable">
+      <tr>
+        <th>Full Name</th>
+        <th>Student ID</th>
+        <th>Email</th>
+        <th>View Records</th>
+        <th>Delete</th>
+      </tr>
+    </table>
+
+    <br>
+    <a href="index.html">⬅ Logout</a>
+  </div>
+
+  <script src="script.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", loadUsersForAdmin);
+  </script>
+</body>
+</html>

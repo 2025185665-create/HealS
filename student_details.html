@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Details - Admin View</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body { font-family: Arial, sans-serif; }
+    .container { max-width: 800px; margin: auto; padding: 20px; }
+    hr { margin: 20px 0; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>📁 Student Full Record</h2>
+    <p id="studentName"></p>
+    <p id="studentID"></p>
+
+    <hr>
+
+    <h3>🧠 Mood History</h3>
+    <div id="moodHistory">Loading mood records...</div>
+
+    <hr>
+
+    <h3>⚖️ BMI Records</h3>
+    <div id="bmiHistory">Loading BMI records...</div>
+
+    <br><br>
+    <a href="admin.html">⬅ Back to Admin Dashboard</a>
+  </div>
+
+  <script>
+const urlParams = new URLSearchParams(window.location.search);
+const studentID = urlParams.get("id");
+
+if (!studentID) {
+  document.body.innerHTML = "<h2>User not found!</h2>";
+  throw new Error("Student ID not provided");
+}
+
+async function loadStudentDetails() {
+  try {
+    // Get student info
+    const resUser = await fetch(`http://localhost:3000/users/${studentID}`);
+    if (!resUser.ok) throw new Error("User not found");
+    const student = await resUser.json();
+
+    document.getElementById("studentName").innerHTML =
+      `<strong>Name:</strong> ${student.fullName || "N/A"}`;
+    document.getElementById("studentID").innerHTML =
+      `<strong>ID:</strong> ${student.userID || "N/A"}`;
+
+    // Mood history
+    const resMood = await fetch(`http://localhost:3000/moods/${studentID}`);
+    const moods = resMood.ok ? await resMood.json() : [];
+    document.getElementById("moodHistory").innerHTML =
+      moods.length === 0
+        ? "No mood records."
+        : moods.map(m => `<p>${new Date(m.created_at || m.date).toLocaleString()} — <strong>${m.mood}</strong> (${m.message || ""})</p>`).join("");
+
+    // BMI history
+    const resBMI = await fetch(`http://localhost:3000/bmi/${studentID}`);
+    const bmiRecords = resBMI.ok ? await resBMI.json() : [];
+    document.getElementById("bmiHistory").innerHTML =
+      bmiRecords.length === 0
+        ? "No BMI records."
+        : bmiRecords.map(b => `<p>${new Date(b.created_at).toLocaleString()} — BMI: <strong>${b.value}</strong> (${b.status})</p>`).join("");
+
+  } catch (err) {
+    console.error(err);
+    document.body.innerHTML = "<h2>Failed to load student data.</h2>";
+  }
+}
+
+loadStudentDetails();
+</script>
+</body>
+</html>

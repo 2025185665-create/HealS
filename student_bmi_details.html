@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>📊 Student BMI Details</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .container { max-width: 800px; margin: auto; padding: 20px; text-align: center; }
+    h2 { margin-bottom: 20px; }
+    table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+    th, td { padding: 10px; border: 1px solid #ddd; text-align: center; }
+    th { background-color: #2196F3; color: white; }
+    a.back { display: block; margin-top: 20px; font-weight: bold; color: #f44336; text-decoration: none; }
+    a.back:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>📊 Student BMI Details</h2>
+    <p id="studentName"></p>
+
+    <table id="bmiDetailsTable">
+      <tr>
+        <th>Date</th>
+        <th>BMI Value</th>
+        <th>Status</th>
+      </tr>
+    </table>
+
+    <a class="back" href="counselor_bmi.html">⬅ Back to Students BMI List</a>
+  </div>
+  
+  <script src="script.js"></script>
+  <script>
+  async function loadStudentBMIDetails() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const studentID = urlParams.get("id");
+    if (!studentID) return;
+
+    const table = document.getElementById("bmiDetailsTable");
+    table.innerHTML = `<tr><th>Date</th><th>BMI Value</th><th>Status</th></tr>`;
+
+    try {
+      const resUser = await fetch(`${API_URL}/users/${studentID}`);
+      const user = await resUser.json();
+      document.getElementById("studentName").innerText = `Student: ${user.fullName} (${studentID})`;
+
+      const resBMI = await fetch(`${API_URL}/bmi/${studentID}`);
+      const bmiRecords = await resBMI.json();
+
+      if (!bmiRecords.length) {
+        const row = table.insertRow();
+        row.insertCell(0).innerText = "-";
+        row.insertCell(1).innerText = "-";
+        row.insertCell(2).innerText = "No records";
+      } else {
+        bmiRecords.forEach(b => {
+          const row = table.insertRow();
+          row.insertCell(0).innerText = new Date(b.created_at).toLocaleString();
+          row.insertCell(1).innerText = b.value;
+          row.insertCell(2).innerText = b.status;
+        });
+      }
+    } catch (err) {
+      console.error(err);
+      alert("⚠️ Could not load BMI details.");
+    }
+  }
+
+  loadStudentBMIDetails();
+</script>
+</body>
+</html>

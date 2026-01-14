@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>👩‍⚕️ Counselor Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .container { text-align: center; max-width: 600px; margin: auto; padding: 20px; }
+    h2 { margin-bottom: 20px; }
+    .btn { 
+      display: block; 
+      width: 80%; 
+      margin: 10px auto; 
+      padding: 15px; 
+      font-size: 18px; 
+      text-decoration: none; 
+      color: white; 
+      background-color: #4CAF50; 
+      border-radius: 10px; 
+    }
+    .btn:hover { background-color: #45a049; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>👩‍⚕️ Counselor Dashboard</h2>
+    <p>Please choose what you want to review:</p>
+
+    <button class="btn" onclick="window.location.href='counselor_mood.html'">📘 View Students' Mood Records</button>
+	<button class="btn" onclick="window.location.href='counselor_bmi.html'">📊 View Students' BMI Records</button>
+
+    <br>
+    <a href="index.html">⬅ Logout</a>
+  </div>
+</body>
+</html>
