@@ -88,7 +88,7 @@ All test cases passed successfully.
 
 ## Individual Contribution
 **Name**: Imannur Umairah  
-**Contribution**: System development, AI integration, testing, documentation, and video narration.
+**Contribution**: System development, designer, tester, AI integration, testing, documentation, and video narration.
 
 ---
 
