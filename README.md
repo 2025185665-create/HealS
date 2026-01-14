@@ -86,11 +86,6 @@ All test cases passed successfully.
 
 ---
 
-## Individual Contribution
-**Name**: Imannur Umairah  
-**Contribution**: System development, designer, tester, AI integration, testing, documentation, and video narration.
-
----
 
 ## Project Status
 Completed academic prototype demonstrating AI integration, system stability, and functional completeness.
