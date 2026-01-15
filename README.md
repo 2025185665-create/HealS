@@ -44,7 +44,7 @@ The AI performs live inference, producing different recommendations for differen
 ## Technologies Used
 - Frontend: HTML, CSS, JavaScript  
 - Backend: Node.js, Express.js  
-- Database: MySQL  
+- Database: MySQL, phpMyAdmin 
 - AI Integration: External AI API  
 
 ---
@@ -71,7 +71,24 @@ An `.env.example` file is provided. Create your own `.env` file and configure:
 4. Open in browser:
    ```
    http://localhost:3000/index.html
-   ```
+
+---
+
+## How to Run the Database in phpMyAdmin
+1. Install XAMPP 
+   - open XAMPP Control Panel.
+   - start Apache.
+   - start MySQL.
+2. Create and Import Database
+   - open phpMyAdmin
+   - create a new database (heals_db).
+   - import the initial database (Dump20251231).
+3. Configure Database Connection
+   - open a terminal in the project folder (visual studio code).
+   - run : npm install (optional, if u already have then no need).
+   - start node server.js (important, must do everytime u want to ensure the database is connected when the system is running).
+4. Access the System
+   - open your browser and type : http://localhost:3000/index.html
 
 ---
 
